@@ -1,0 +1,39 @@
+.section{
+    margin-bottom: 92px;
+    max-width: 100%;
+    width: 100%;
+
+    @media (max-width: 768px){
+        margin-bottom: 64px;
+    }
+
+    @media (max-width: 320px){
+        margin-bottom: 42px;
+    }
+
+    &__title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        color: #363636;
+        margin-bottom: 8px;
+
+        @media(max-width: 320px){
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    &__text{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #A7A7A7;
+        margin-bottom: 32px;
+
+        @media (max-width: 320px){
+            font-size: 15px;
+            line-height: 20px;
+        }
+    }
+}

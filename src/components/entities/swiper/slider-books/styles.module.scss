@@ -1,0 +1,36 @@
+.root {
+    padding: 4px;
+    height: 518px;
+}
+
+.root div:has(.swiper-pagination) {
+    opacity: 1;
+}
+
+.root :global(.swiper-pagination.swiper-pagination-horizontal) {
+    opacity: 1;
+    padding: 4px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper__wrapper {
+    margin-inline: auto;
+}
+
+@media screen and (max-width: 1160px) {
+    .root {
+        height: 520px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .swiper__wrapper {
+        overflow-x: scroll;
+    }
+
+    .swiper__wrapper :global(.swiper-slide) {
+        min-width: 288px;
+    }
+}
