@@ -1,0 +1,57 @@
+.block{
+    padding: 16px;
+    width: 100%;
+    background: #6E76F1;
+    opacity: 0.7;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    height: 218px;
+
+    @media (max-width: 320px){
+        padding: 10px;
+    }
+
+    &__red{
+        background: rgba(255, 82, 83, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    & span{
+        width: 100%;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        color: #FFFFFF;
+
+        @media (max-width: 320px) {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    & p{
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 16px;
+
+        @media (max-width: 320px) {
+            font-size: 14px;
+            line-height: 18px;
+            margin-top: 12px;
+        }
+
+    }
+}
+
+.book_wrapper{
+    width: 100%;
+    height: 218px;
+    border-radius: 10px;
+    position: relative;
+}

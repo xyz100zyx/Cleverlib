@@ -1,0 +1,178 @@
+.review{
+    max-width: 528px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 32px 32px 48px 56px;
+    position: relative;
+    font-family: 'Montserrat';
+    font-style: normal;
+
+    &__header{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        position: relative;
+        min-height: 48px;
+
+        @media (max-width: 576px) {
+            min-height: 54px;
+        }
+
+        & button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 12px;
+            background: #F9F9FA;
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media(max-width: 576px){
+                padding: 8px;
+            }
+
+            & svg{
+                @media (max-width: 576px) {
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+        }
+    }
+
+    &__title{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 0.1px;
+        color: #363636;
+
+        @media (max-width: 576px){
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    &__rating{
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+
+        @media(max-width: 320px){
+            margin-top: 24px;
+        }
+    }
+
+    &__subtitle{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: #363636;
+    }
+
+    &__stars{
+        display: flex;
+        max-width: 258px;
+        width: 100%;
+        justify-content: space-between;
+
+        @media (max-width: 320px){
+            max-width: 208px;
+        }
+
+        & .stars__item{
+            padding: 3.5px 3.5px 5.25px 3.5px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            outline: none;
+
+            @media (max-width: 320px){
+                padding: 2.67px 2.67px 4px 2.67px;
+            }
+
+            & img{
+                width: 35px;
+                height: 33.25px;
+
+                @media (max-width: 320px){
+                    width: 26.67px;
+                    height: 25.33px;
+                }
+            }
+        }
+    }
+
+    &__text{
+        width: 100%;
+        border: none;
+        outline: none;
+        background: #F9F9FA;
+        border-radius: 4px;
+        padding: 19px 12px;
+        word-break: break-word;
+        resize: none;
+        margin-top: 32px;
+        height: 132px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: #363636;
+        mix-blend-mode: normal;
+
+        &::placeholder{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.1px;
+            color: #A7A7A7;
+            mix-blend-mode: normal;
+        }
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    &__btn{
+        margin-top: 52px;
+        border: none;
+        outline: none;
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        cursor: pointer;
+
+        @media (max-width: 320px) {
+            margin-top: 44px;
+            padding: 11px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+    }
+
+    @media (max-width: 320px){
+        padding: 16px 16px 32px 16px;
+        max-width: 288px;
+    }
+
+}
