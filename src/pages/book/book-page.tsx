@@ -24,15 +24,9 @@ import { getAlertType, getTextAlert } from '../../utils/alert';
 import { sortComments } from '../../utils/sort.utils';
 import { hasMyReview } from './helpers';
 import {useAppSelector} from "../../hooks/redux/selectros";
-import {authUserSelector} from "../../store/selectors/auth-selectors";
 import {navRequestStatusSelector, navStateSelector} from "../../store/selectors/nav-selectors";
 import {isReviewPopupSelector, popupStateSelector} from "../../store/selectors/popup-selectors";
 import {booksStateSelector} from "../../store/selectors/book-selectors";
-import {
-    bookingRequestStatusSelector,
-    bookingRequestTypeSelector
-} from "../../store/selectors/booking-selectors";
-import {commentRequestStatusSelector} from "../../store/selectors/comments-selector";
 import {AlertFounders, RequestStatusType} from "../../utils/constants";
 import {setAlertFounder} from "../../store/slices/popup/popup-slice";
 import {profileDataSelector} from "../../store/selectors/profile-selectors";
@@ -46,7 +40,6 @@ export const BookPage: FC = () => {
   const isNeedSecondUpdate = useRef(true);
 
   const userId = useAppSelector(profileDataSelector)?.id as number || Number(getLocalStorageItem('userId'));
-  console.log('userId', userId)
   const { booksId, category } = useParams();
   const { genres } = useAppSelector(navStateSelector);
   const { alert, booking } = useAppSelector(popupStateSelector);
@@ -184,13 +177,11 @@ export const BookPage: FC = () => {
         )}
       </div>
       <button
-        disabled={book?.delivery?.handed && book?.delivery?.recipientId !== userId}
+        disabled={!hasMyReview(book?.comments || [], userId)}
         data-test-id='button-rate-book'
         onClick={onAddReviewBtnClick}
         type='button'
-        className={classNames(styles.button, {
-          [styles.button_blocked]: book?.delivery?.handed,
-        }, {[styles.button_added]: hasMyReview(book?.comments || [], userId)})}
+        className={classNames(styles.button, {[styles.button_added]: hasMyReview(book?.comments || [], userId)})}
       >
           {hasMyReview(book?.comments || [], userId) ? 'изменить оценку' : 'оценить книгу'}
       </button>
