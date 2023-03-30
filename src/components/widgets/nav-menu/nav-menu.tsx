@@ -18,12 +18,11 @@ import {
     booksFetchedSelector,
     booksRequestStatusSelector
 } from "../../../store/selectors/book-selectors";
-import {filterStateSelector} from "../../../store/selectors/filter-selctors";
+import {activeGenreSelector} from "../../../store/selectors/filter-selctors";
 import {INavMenu} from "./interface";
 import {RequestStatusType} from "../../../utils/constants";
 
 export const NavMenu: FC<INavMenu> = ({
-  dataTestIdBooks,
   dataTestIdContract,
   dataTestIdShowcase,
   dataTestIdTerms,
@@ -33,7 +32,7 @@ export const NavMenu: FC<INavMenu> = ({
   const { activeDirectory, isHiddenGenres, genres, status } = useAppSelector(navStateSelector);
   const statusBooks = useAppSelector(booksRequestStatusSelector);
   const books = useAppSelector(booksFetchedSelector);
-  const {activeGenre} = useAppSelector(filterStateSelector);
+  const activeGenre = useAppSelector(activeGenreSelector);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
