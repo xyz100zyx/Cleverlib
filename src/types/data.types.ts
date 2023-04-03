@@ -1,5 +1,3 @@
-import {bool} from "yup";
-
 export type FetchedBooks = {
   issueYear: string;
   rating?: number;
