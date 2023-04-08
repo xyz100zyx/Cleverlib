@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useRef } from 'react';
+import { Dispatch, FC, memo, SetStateAction, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './search.module.scss';
 import { ReactComponent as InputClose } from '../../../assets/input-close.svg';
@@ -12,7 +12,7 @@ interface IProps {
   setMobileOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Search: FC<IProps> = ({ placeholder, label, mobileOpen, setMobileOpen }) => {
+export const Search: FC<IProps> = memo(({ placeholder, label, mobileOpen, setMobileOpen }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
@@ -62,4 +62,4 @@ export const Search: FC<IProps> = ({ placeholder, label, mobileOpen, setMobileOp
       </div>
     </div>
   );
-};
+})
