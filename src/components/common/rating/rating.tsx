@@ -10,11 +10,11 @@ interface IProps {
 export const Rating: FC<IProps> = ({ rating }) => (
   <ul className={styles.rating}>
     {[...Array(5)].map((_, index) =>
-      <li data-test-id='star'>
+      <li key={"qwerty"[index]} data-test-id='star'>
           {index < Math.floor(rating!) ? (
-          <img data-test-id='star' key={Math.round(index)} src={iconStar} alt='star icon' />
+          <img data-test-id='star' src={iconStar} alt='star icon' />
           ) : (
-          <img key={Math.round(index)} src={iconOutlinedStar} alt='star icon' />
+          <img src={iconOutlinedStar} alt='star icon' />
           )}
       </li>
     )}

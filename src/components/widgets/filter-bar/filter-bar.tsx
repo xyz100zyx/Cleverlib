@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { Search, Select } from '../../common';
 import { DisplayButton } from '../../common/display-button/display-button';
 import styles from './filter-bar.module.scss';
 import {IFilterBar} from "./interface";
 import {viewFilterItems} from "./contstants";
 
-export const FilterBar: FC<IFilterBar> = ({ onViewManagerClick, displayState }) => {
+export const FilterBarComponent: FC<IFilterBar> = ({ onViewManagerClick, displayState }) => {
   const [isOpenMobileSearch, setMobileSearch] = useState(false);
 
   return (
@@ -32,3 +32,5 @@ export const FilterBar: FC<IFilterBar> = ({ onViewManagerClick, displayState }) 
     </div>
   );
 };
+
+export const FilterBar = memo(FilterBarComponent)

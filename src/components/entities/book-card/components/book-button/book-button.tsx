@@ -20,8 +20,6 @@ export const BookButton: FC<IBookButton> = ({ text, type, displayType , book}) =
         e.stopPropagation()
     }
 
-    console.log(type)
-
     return (
         <button
             data-test-id='booking-button'
