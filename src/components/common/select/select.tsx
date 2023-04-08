@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './select.module.scss';
 import selectIconDesc from '../../../assets/icon_sort.svg';
@@ -11,7 +11,7 @@ interface IProps {
   mobileOpen?: boolean;
 }
 
-export const Select: FC<IProps> = ({ mobileOpen }) => {
+export const Select: FC<IProps> = memo(({ mobileOpen }) => {
   const dispatch = useDispatch();
   const sortedType = useSelector((state: RootState) => state.filter.sortedType);
 
@@ -31,4 +31,4 @@ export const Select: FC<IProps> = ({ mobileOpen }) => {
       </span>
     </div>
   );
-};
+})
