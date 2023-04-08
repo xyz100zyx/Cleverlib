@@ -198,7 +198,7 @@ export const BookPage: FC = () => {
       {alert && (
         <AlertPopup dataTestId='response-status' />
       )}
-      {booking && <BookingPopup customer={Number(userId!)} action='create' />}
+      {booking && <BookingPopup />}
     </section>
   ) : (
     <div />

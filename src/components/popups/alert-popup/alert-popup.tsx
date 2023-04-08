@@ -63,6 +63,8 @@ export const AlertPopup: FC<IAlertPopup> = ({ dataTestId}) => {
     dispatch(setNullStatusBooking());
   };
 
+  console.log('render ', messageText, ' ', typeResponse, founder)
+
   useEffect(() => {
     const timer = setTimeout(onCloseClick, 4000);
 

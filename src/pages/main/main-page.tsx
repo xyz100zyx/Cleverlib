@@ -12,10 +12,8 @@ import { BookingPopup } from '../../components/popups/booking-popup';
 import { AlertPopup } from '../../components/popups/alert-popup/alert-popup';
 import { useAppSelector } from "../../hooks/redux/selectros";
 import {
-  bookClickedFromMainSelector,
   booksRequestStatusSelector
 } from "../../store/selectors/book-selectors";
-import { commentRequestStatusSelector } from "../../store/selectors/comments-selector";
 import { navRequestStatusSelector } from "../../store/selectors/nav-selectors";
 import { popupStateSelector } from "../../store/selectors/popup-selectors";
 import { AlertFounders, RequestStatusType } from "../../utils/constants";
@@ -56,7 +54,7 @@ export const MainPage: FC = () => {
           <BooksList displayTemplate={listView} />
         </>
       )}
-      {booking && <BookingPopup action='create' customer={userId} />}
+      {booking && <BookingPopup />}
       {alert && (
         <AlertPopup dataTestId='response-status' />
       )}
