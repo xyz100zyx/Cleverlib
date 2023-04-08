@@ -29,8 +29,6 @@ export const BookCardReg: FC<IBookCard> = ({ book, bookForHistory, isForProfileH
     const userId = useAppSelector(profileDataSelector)?.id as number
     const dispatch = useDispatch()
 
-    console.log('render card of book')
-
     const onCardClick = () => {
         dispatch(setBookClickedFromMain(book!))
         if (isReviewedByUser) {

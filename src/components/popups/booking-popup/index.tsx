@@ -26,12 +26,11 @@ import { useAppSelector } from "../../../hooks/redux/selectros";
 import {
     bookClickedFromMainSelector,
 } from "../../../store/selectors/book-selectors";
-import { IBookingPopup } from "./interface";
 import * as Text from './constants'
 import {AlertFounders} from "../../../utils/constants";
 import {getLocalStorageItem} from "../../../utils/storage.utils";
 
-export const BookingPopup: FC<IBookingPopup> = ({ customer, action }) => {
+export const BookingPopup: FC = () => {
     const bookClickedFromMainPage = useAppSelector(bookClickedFromMainSelector) as FetchedBooks;
     const bookingId = bookClickedFromMainPage?.booking?.id;
     const isOnBookPage = !!useParams().booksId;
@@ -126,7 +125,7 @@ export const BookingPopup: FC<IBookingPopup> = ({ customer, action }) => {
                         <CloseIcon />
                     </button>
                 </div>
-                <Calendar isBooked={Boolean(bookedDate)} chosenDate={chosenDate}
+                <Calendar chosenDate={chosenDate}
                     setChosenDate={setChosenDate} />
                 {!bookedDate && (
                     <button

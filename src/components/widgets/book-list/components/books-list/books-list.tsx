@@ -10,7 +10,7 @@ import {
 import {
     genresSelector
 } from "../../../../../store/selectors/nav-selectors";
-import { filterGenreSelector, filterInputSelector, filterSortSelector, filterStateSelector } from "../../../../../store/selectors/filter-selctors";
+import { filterGenreSelector, filterInputSelector, filterSortSelector } from "../../../../../store/selectors/filter-selctors";
 import { IBooksList } from "./interface";
 
 export const BooksListComponent: FC<IBooksList> = ({ displayTemplate }) => {
@@ -20,7 +20,6 @@ export const BooksListComponent: FC<IBooksList> = ({ displayTemplate }) => {
     const inputValue = useAppSelector(filterInputSelector);
     const activeGenre = useAppSelector(filterGenreSelector);
     const sortedType = useAppSelector(filterSortSelector);
-    console.log('render book list')
 
     /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {

@@ -4,9 +4,9 @@ import styles from './calendar.module.scss';
 import { getMonthData, MONTHS_IN_YEAR, MONTHS, DAYS, areEqual, getNextAvailableDay } from '../../../utils/calendar';
 import { ReactComponent as IconArrowUp } from '../../../assets/icon-arrow-up.svg';
 import { ReactComponent as IconArrowDown } from '../../../assets/icon-arrow-down.svg';
-import {ICalendar} from "./interface";
+import { ICalendar } from "./interface";
 
-export const Calendar: FC<ICalendar> = ({ setChosenDate, chosenDate, isBooked }) => {
+export const Calendar: FC<ICalendar> = ({ setChosenDate, chosenDate }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const nextAvailableDay = getNextAvailableDay(currentDate);
 
@@ -71,7 +71,7 @@ export const Calendar: FC<ICalendar> = ({ setChosenDate, chosenDate, isBooked })
       <table className={styles.calendar__table}>
         <thead>
           <tr>
-            {DAYS.map((day, index) => (
+            {DAYS.map((day) => (
               <th key={day}>{day}</th>
             ))}
           </tr>
