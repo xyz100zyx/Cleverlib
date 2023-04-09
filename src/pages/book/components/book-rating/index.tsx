@@ -4,10 +4,10 @@ import {IBookRating} from "./interface";
 import { ReactComponent as IconStarFill } from '../../../../assets/star-icon.svg';
 import { ReactComponent as IconStarUnfill } from '../../../../assets/star-icon-unfill.svg';
 
-export const BookRating: FC<IBookRating> = ({rating, ISBN, images}) => (
+export const BookRating: FC<IBookRating> = ({rating, ISBN, imagesCount}) => (
     <div
         className={
-            images && images.length < 2
+            imagesCount < 2
                 ? `${styles.page__rating}`
                 : `${styles.page__rating} ${styles.page__rating__with}`
         }
