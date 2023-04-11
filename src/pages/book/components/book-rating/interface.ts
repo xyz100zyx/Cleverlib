@@ -1,5 +1,5 @@
 export interface IBookRating{
-    images: Array<{ url: string }> | null;
+    imagesCount: number;
     rating: number | null;
     ISBN: string
 }

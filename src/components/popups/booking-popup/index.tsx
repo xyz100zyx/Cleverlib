@@ -14,7 +14,8 @@ import { ReactComponent as CloseIcon } from '../../../assets/close-review-icon.s
 import { Calendar } from '../../entities/calendar/calendar';
 import { useThunkDispatch } from '../../../hooks/redux/dispatchers';
 import {
-    createBooking,
+    createBookingWithBookPage,
+    createBookingWithMainPage,
     deleteBooking,
     editBooking
 } from '../../../store/slices/booking/async-actions';
@@ -56,13 +57,13 @@ export const BookingPopup: FC = () => {
             },
         };
         if (isOnBookPage) {
-            thunkDispatch(createBooking(dto))
-                .then(() => thunkDispatch(fetchBookById(bookClickedFromMainPage.id)))
+            console.log('was clicked from book')
+            thunkDispatch(createBookingWithBookPage({dto, id: bookClickedFromMainPage.id}))
                 .then(() => dispatch(setAlertOpen(true)))
                 .then(() => dispatch(setBookingOpen(false)));
         } else {
-            thunkDispatch(createBooking(dto))
-                .then(() => thunkDispatch(fetchBooks()))
+            console.log('was clicked from main')
+            thunkDispatch(createBookingWithMainPage(dto))
                 .then(() => dispatch(setAlertOpen(true)))
                 .then(() => dispatch(setBookingOpen(false)));
         }

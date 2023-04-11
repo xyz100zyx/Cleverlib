@@ -1,13 +1,27 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {BookingResponse} from "../../../types/data.types";
+import {BookingResponse, FetchedBook, FetchedBooks} from "../../../types/data.types";
 import {CreateBookingDto, EditBookingDto} from "../../../types/dto.types";
 import {BookingService} from "../../../services/booking-service";
+import { BookService } from "../../../services/book-service";
 
-export const createBooking = createAsyncThunk<BookingResponse, CreateBookingDto, {rejectValue: string}>(
-    'booking/create',
+export const createBookingWithMainPage = createAsyncThunk<FetchedBooks[], CreateBookingDto, {rejectValue: string}>(
+    'booking/createWithMainPage',
     async (dto, {rejectWithValue}) => {
         try{
-            return await BookingService.createBooking(dto)
+            const bookingResponse =  await BookingService.createBooking(dto)
+            return await BookService.getBooks()
+        }catch(err: any){
+            return rejectWithValue(err.message)
+        }
+    }
+)
+
+export const createBookingWithBookPage = createAsyncThunk<FetchedBook, {dto: CreateBookingDto, id: number}, {rejectValue: string}>(
+    'booking/createWithBookPage',
+    async (params, {rejectWithValue}) => {
+        try{
+            const bookingResponse =  await BookingService.createBooking(params.dto)
+            return await BookService.getBookById(params.id)
         }catch(err: any){
             return rejectWithValue(err.message)
         }
