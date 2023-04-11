@@ -38,7 +38,7 @@ export const BookPage: FC = () => {
   const { alert, booking } = useAppSelector(popupStateSelector);
   const navStatus = useAppSelector(navRequestStatusSelector);
   const { book, books, status } = useAppSelector(booksStateSelector);
-  const activeGenre = useAppSelector(filterGenreSelector)
+  const activeGenre = useAppSelector(filterGenreSelector);
   const isReviewOpen = useAppSelector(isReviewPopupSelector);
   const thunkDispatch = useThunkDispatch();
   const dispatch = useDispatch();
@@ -49,7 +49,6 @@ export const BookPage: FC = () => {
   };
 
   const onAddReviewBtnClick = () => {
-    console.log('open works')
     setOpenReviewPop(true);
   };
 
